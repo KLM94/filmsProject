@@ -1,10 +1,9 @@
 const { fetchAllFilms } = require("../models/films");
 
 exports.getAllFilms = (req, res, next) => {
+  console.log("in model");
   fetchAllFilms()
-    .then(function(films) {
-      res.status(200).send(films);
-    })
+    .then(console.log("in controller"))
     .catch(err => {
       console.log(err);
     });

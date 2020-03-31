@@ -8,7 +8,7 @@
     "setup-dbs": "psql -f ./db/setup.sql",
     "setup-test-db": "psql -f ./db/test-setup.sql",
     "seed": "knex seed:run",
-    "seed-test": "NODE_ENV=test knex seed:run",
+    "seed-test": "npm run setup-test-db && NODE_ENV=test knex seed:run",
     "migrate-make": "knex migrate:make",
     "migrate-latest": "knex migrate:latest",
     "migrate-rollback": "knex migrate:rollback",

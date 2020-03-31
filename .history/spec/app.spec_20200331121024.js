@@ -14,8 +14,8 @@ describe("/api", () => {
     return request(app)
       .get("/api/films")
       .expect(200)
-      .then(response => {
-        expect(response.body).to.be.an("object");
+      .then(({ body: { films } }) => {
+        console.log(films);
       });
   });
   // });

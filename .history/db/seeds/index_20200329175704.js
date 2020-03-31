@@ -1,6 +1,5 @@
 const { userData, commentData, filmData } = require("../data/index");
 const { formatDates } = require("../utils/utils");
-
 exports.seed = function(knex) {
   return knex.migrate
     .rollback()

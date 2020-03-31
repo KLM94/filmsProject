@@ -1,5 +1,4 @@
-process.env.NODE_ENV = "development";
-
+process.env.NODE_ENV = "test";
 const request = require("supertest");
 const chai = require("chai");
 const { expect } = chai;
@@ -9,14 +8,13 @@ const connection = require("../db/connection");
 describe("/api", () => {
   beforeEach(() => connection.seed.run());
   after(() => connection.destroy());
-  // describe("/films", () => {
-  it("GET 200, responds with an array of all the films", () => {
+
+  it("responds with JSON, describing all endpoints", () => {
     return request(app)
       .get("/api/films")
       .expect(200)
-      .then(response => {
-        expect(response.body).to.be.an("object");
+      .then(({ body: { films } }) => {
+        console.log(films);
       });
   });
-  // });
 });

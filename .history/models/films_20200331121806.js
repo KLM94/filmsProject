@@ -6,6 +6,6 @@ exports.fetchAllFilms = () => {
     .select("*")
     .from("films")
     .then(films => {
-      return { films: films };
+      return films;
     });
 };
